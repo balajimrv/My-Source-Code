@@ -1,0 +1,14 @@
+<?php
+/** @var $block \Balaji\Blog\Block\PostView */
+/** @var $post \Balaji\Blog\Model\Post */
+$post = $block->getPost();
+?>
+<h1 class="blog-post-item-title" style="margin-bottom:25px !important; color:#0d3d56; font-weight:500;"><?php echo $post->getTitle() ?></h1>
+<div class="blog-post-item-meta" style="margin-bottom:40px;">
+    <i></li><strong><?php echo __('Created at:') ?></strong> <?php echo $post->getCreationTime() ?></i>
+</div>
+<div class="blog-post-item-content" style="line-height:30px;">
+    <?php echo $post->getContent(); ?>
+</div>
+<h3><a href="https://chennaiwebdeveloper.com/magento2/blog/"><< Back to Blog Post</a></h3>
+

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+          <css src="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" src_type="url"/>
+          <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" src_type="url"/>
+     </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Balaji\Blog\Block\PostList" name="blog.list" template="Balaji_Blog::list.phtml" />
+        </referenceContainer>
+    </body>
+</page>

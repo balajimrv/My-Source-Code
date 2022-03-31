@@ -1,0 +1,52 @@
+<?php /** @var $block \Balaji\Blog\Block\PostList */ ?>
+<h1 style="font-weight:500; margin-bottom:0px !important;"><?php echo __('Blog Post - List') ?></h1>
+<table class="data-grid" id="example">
+    <thead>
+    <tr>
+        <th class="data-grid-th">&nbsp;</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php $i=1; ?>
+    <?php foreach ($block->getPosts() as $post): ?>    
+        <tr>
+            <td>
+                <div class="blog-post-list-item" style="border-bottom:1px solid #CCC; padding-bottom:15px; list-style:none !important;">
+                <h3 class="blog-post-item-title" style="margin-top:5px !important;">
+                    <a href="<?php echo $post->getUrl() ?>"><?php echo $i.'. '.$post->getTitle() ?></a>
+                </h3>
+    			<div class="blog-post-item-meta">
+                    <i><strong><?php echo __('Created at:') ?></strong> <?php echo $post->getCreationTime() ?></i>
+                </div>
+                <div class="blog-post-item-content" style="margin-top:20px; line-height:26px;">
+                
+    				<?php
+    					$content = $post->getContent();
+    					$len = strlen($content);
+                    ?>
+                    <?php echo substr($content,0,450); ?>
+        			<?php if($len > 50) echo '... <a href="'.$post->getUrl().'">View More >></a>'; ?>
+        			</div>
+                </div>
+            </td>
+        </tr>
+        <?php $i++; ?>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+
+
+<script>
+    require([
+        'jquery',
+        'Balaji_Blog/js/jquery.dataTables.min'
+    ], function($, $t){
+        $(document).ready(function() {
+            $('#example').DataTable({
+                searching: false, ordering: false,"bLengthChange": false,
+                "pageLength": 5
+            });
+        } );
+    })
+</script>
+
